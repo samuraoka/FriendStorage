@@ -25,7 +25,7 @@ namespace FriendStorage.DataAccess
             }
             else
             {
-                throw new NotImplementedException();
+                UpdateFriend(friend);
             }
         }
 
@@ -34,7 +34,15 @@ namespace FriendStorage.DataAccess
             throw new NotImplementedException();
         }
 
-        // TODO
+        private void UpdateFriend(Friend friend)
+        {
+            var friends = ReadFromFile();
+            var existing = friends.Single(f => f.Id == friend.Id);
+            var indexOfExisting = friends.IndexOf(existing);
+            friends.Insert(indexOfExisting, friend);
+            friends.Remove(existing);
+            SaveToFile(friends);
+        }
 
         private void InsertFriend(Friend friend)
         {

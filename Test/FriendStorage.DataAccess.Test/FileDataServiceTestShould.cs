@@ -76,6 +76,30 @@ namespace FriendStorage.DataAccess.Test
             Assert.False(File.Exists(storageFile));
         }
 
+        [Theory]
+        [InlineData("Andrea", "Iannone", 1989, 8, 9)]
+        public void ModifyExistingFriend(
+            string firstName, string lastName,
+            int birthYear, int birthMonth, int birthDay)
+        {
+            // Arrange
+            var tmp = new Friend();
+            _dataService.SaveFriend(tmp);
+            var friend = _dataService.GetFriendById(tmp.Id);
+           
+            // Act
+            friend.FirstName = firstName;
+            friend.LastName = lastName;
+            friend.Birthday = new DateTime(birthYear, birthMonth, birthDay);
+            friend.IsDeveloper = true;
+            _dataService.SaveFriend(friend);
+            var updatedFriend = _dataService.GetFriendById(friend.Id);
+
+            // Assert
+            Assert.NotSame(friend, updatedFriend);
+            Assert.Equal(friend, updatedFriend);
+        }
+
         public static IEnumerable<object[]> GetFriends()
         {
             return new List<object[]>
