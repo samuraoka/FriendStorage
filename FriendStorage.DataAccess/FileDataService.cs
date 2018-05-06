@@ -19,7 +19,14 @@ namespace FriendStorage.DataAccess
 
         public void SaveFriend(Friend friend)
         {
-            throw new NotImplementedException();
+            if (friend.Id <= 0)
+            {
+                InsertFriend(friend);
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public void DeleteFriend(int friendId)
@@ -28,6 +35,16 @@ namespace FriendStorage.DataAccess
         }
 
         // TODO
+
+        private void InsertFriend(Friend friend)
+        {
+            var friends = ReadFromFile();
+            var nextFriendId =
+                (friends.Count == 0 ? 0 : friends.Max(f => f.Id)) + 1;
+            friend.Id = nextFriendId;
+            friends.Add(friend);
+            SaveToFile(friends);
+        }
 
         public IEnumerable<Friend> GetAllFriends()
         {
@@ -39,7 +56,17 @@ namespace FriendStorage.DataAccess
             throw new NotImplementedException();
         }
 
-        // TODO
+        public void DeleteStorageFile()
+        {
+            File.Delete(StorageFile);
+        }
+
+        private void SaveToFile(IEnumerable<Friend> friends)
+        {
+            string json =
+                JsonConvert.SerializeObject(friends, Formatting.Indented);
+            File.WriteAllText(StorageFile, json);
+        }
 
         private List<Friend> ReadFromFile()
         {

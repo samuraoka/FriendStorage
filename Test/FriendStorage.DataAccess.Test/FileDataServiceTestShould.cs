@@ -1,6 +1,7 @@
 ﻿using FriendStorage.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Xunit;
 
 namespace FriendStorage.DataAccess.Test
@@ -23,6 +24,56 @@ namespace FriendStorage.DataAccess.Test
 
             // Assert
             Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(int.MaxValue)]
+        public void GetExceptionWhenDisignatedFriendNotExist(int id)
+        {
+            // Assert
+            Assert.Throws<InvalidOperationException>(
+                () => _dataService.GetFriendById(id));
+        }
+
+        [Fact]
+        public void SaveNotExistFriend()
+        {
+            // Arrange
+            var friend = new Friend
+            {
+                FirstName = "David",
+                LastName = "Stevens",
+                Birthday = DateTime.Now,
+                IsDeveloper = true,
+            };
+
+            // Act
+            _dataService.SaveFriend(friend);
+            var savedFriend = _dataService.GetFriendById(friend.Id);
+
+            // Assert
+            Assert.Equal(friend, savedFriend);
+        }
+
+        [Theory]
+        [InlineData("Friends.json")]
+        public void DeleteStorageFile(string storageFile)
+        {
+            // Arrange
+            var friend = new Friend
+            {
+                FirstName = "David",
+                LastName = "Stevens",
+                Birthday = DateTime.Now,
+                IsDeveloper = true,
+            };
+            _dataService.SaveFriend(friend);
+
+            // Act
+            _dataService.DeleteStorageFile();
+
+            // Assert
+            Assert.False(File.Exists(storageFile));
         }
 
         public static IEnumerable<object[]> GetFriends()
