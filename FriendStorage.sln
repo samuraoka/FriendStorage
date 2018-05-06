@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendStorage.DataAccess", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendStorage.DataAccess.Test", "Test\FriendStorage.DataAccess.Test\FriendStorage.DataAccess.Test.csproj", "{699200C4-3AC8-4C62-98B0-43042CFBD404}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendStorage.UI", "FriendStorage.UI\FriendStorage.UI.csproj", "{7307EC64-D8D8-477F-9375-A437BF438F59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{699200C4-3AC8-4C62-98B0-43042CFBD404}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{699200C4-3AC8-4C62-98B0-43042CFBD404}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{699200C4-3AC8-4C62-98B0-43042CFBD404}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7307EC64-D8D8-477F-9375-A437BF438F59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7307EC64-D8D8-477F-9375-A437BF438F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7307EC64-D8D8-477F-9375-A437BF438F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7307EC64-D8D8-477F-9375-A437BF438F59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
