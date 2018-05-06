@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FriendStorage.Model\FriendStorage.Model.csproj" />
+    <ProjectReference Include="..\..\FriendStorage.Model\FriendStorage.Model.csproj" />
   </ItemGroup>
 
 </Project>
