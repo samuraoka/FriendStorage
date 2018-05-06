@@ -56,7 +56,7 @@ namespace FriendStorage.DataAccess
 
         public IEnumerable<Friend> GetAllFriends()
         {
-            throw new NotImplementedException();
+            return ReadFromFile();
         }
 
         public void Dispose()

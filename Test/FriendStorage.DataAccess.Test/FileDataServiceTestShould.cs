@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Xunit;
 
 namespace FriendStorage.DataAccess.Test
@@ -55,6 +56,26 @@ namespace FriendStorage.DataAccess.Test
             Assert.Equal(friend, savedFriend);
         }
 
+        [Fact]
+        public void IncreaseOneFriendWhenAddedNewFriend()
+        {
+            // Arrange
+            var numberBefore = _dataService.GetAllFriends().Count();
+
+            // Act
+            _dataService.SaveFriend(new Friend
+            {
+                FirstName = "David",
+                LastName = "Stevens",
+                Birthday = DateTime.Now,
+                IsDeveloper = true,
+            });
+            var numberAfter = _dataService.GetAllFriends().Count();
+
+            // Assert
+            Assert.Equal(numberBefore + 1, numberAfter);
+        }
+
         [Theory]
         [InlineData("Friends.json")]
         public void DeleteStorageFile(string storageFile)
@@ -86,7 +107,7 @@ namespace FriendStorage.DataAccess.Test
             var tmp = new Friend();
             _dataService.SaveFriend(tmp);
             var friend = _dataService.GetFriendById(tmp.Id);
-           
+
             // Act
             friend.FirstName = firstName;
             friend.LastName = lastName;
@@ -98,6 +119,40 @@ namespace FriendStorage.DataAccess.Test
             // Assert
             Assert.NotSame(friend, updatedFriend);
             Assert.Equal(friend, updatedFriend);
+        }
+
+        [Theory]
+        [InlineData("Alvaro", "Bautista", 1984, 11, 21)]
+        public void NotIncreaseFriendsWhenUpdatingFriend(
+            string firstName, string lastName,
+            int birthYear, int birthMonth, int birthDay)
+        {
+            // Arrange
+            var tmp = new Friend();
+            _dataService.SaveFriend(tmp);
+            var friend = _dataService.GetFriendById(tmp.Id);
+            var numberBefore = _dataService.GetAllFriends().Count();
+
+            // Act
+            friend.FirstName = firstName;
+            friend.LastName = lastName;
+            friend.Birthday = new DateTime(birthYear, birthMonth, birthDay);
+            friend.IsDeveloper = true;
+            _dataService.SaveFriend(friend);
+            var numberAfter = _dataService.GetAllFriends().Count();
+
+            // Assert
+            Assert.Equal(numberBefore, numberAfter);
+        }
+
+        [Fact]
+        public void GetAllFriends()
+        {
+            // Act
+            var friends = _dataService.GetAllFriends();
+
+            // Assert
+            Assert.NotNull(friends);
         }
 
         public static IEnumerable<object[]> GetFriends()
