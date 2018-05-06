@@ -31,7 +31,10 @@ namespace FriendStorage.DataAccess
 
         public void DeleteFriend(int friendId)
         {
-            throw new NotImplementedException();
+            var friends = ReadFromFile();
+            var existing = friends.Single(f => f.Id == friendId);
+            friends.Remove(existing);
+            SaveToFile(friends);
         }
 
         private void UpdateFriend(Friend friend)
@@ -61,7 +64,8 @@ namespace FriendStorage.DataAccess
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            // Usually Service-Proxies are disposable. This method is added as demo-purpose
+            // to show how to use an IDisposable in the client with a Func<T>. =>  Look for example at the FriendDataProvider-class
         }
 
         public void DeleteStorageFile()

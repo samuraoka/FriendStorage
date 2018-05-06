@@ -155,6 +155,37 @@ namespace FriendStorage.DataAccess.Test
             Assert.NotNull(friends);
         }
 
+        [Fact]
+        public void DeleteFriend()
+        {
+            // Arrange
+            var tmp = new Friend();
+            _dataService.SaveFriend(tmp);
+
+            // Act
+            _dataService.DeleteFriend(tmp.Id);
+
+            // Assert
+            Assert.Throws<InvalidOperationException>(
+                () => _dataService.GetFriendById(tmp.Id));
+        }
+
+        [Fact]
+        public void DecreaseOneFriendWhenDeleteFriend()
+        {
+            // Arrange
+            var tmp = new Friend();
+            _dataService.SaveFriend(tmp);
+            var numberBefore = _dataService.GetAllFriends().Count();
+
+            // Act
+            _dataService.DeleteFriend(tmp.Id);
+            var numberAfter = _dataService.GetAllFriends().Count();
+
+            // Assert
+            Assert.Equal(numberBefore - 1, numberAfter);
+        }
+
         public static IEnumerable<object[]> GetFriends()
         {
             return new List<object[]>
