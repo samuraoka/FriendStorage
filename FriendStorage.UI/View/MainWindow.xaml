@@ -11,14 +11,15 @@
         Background="Black" Icon="../Images/FriendStorageIcon.png">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <!-- Header -->
@@ -29,14 +30,14 @@
         <!-- Buttons -->
         <StackPanel Background="#333333" Grid.Row="1" Orientation="Horizontal">
             <Button Command="{Binding AddFriendCommand}"
-                    ToolTip="Add Friend" Style="{StaticResource AddButtonStyle}"/>
+                    ToolTip="Add Friend" Style="{StaticResource AddButtonStyle}" />
         </StackPanel>
 
         <!-- Navigation -->
-        <view:NavigationView DataContext="{Binding NavigationViewModel}" Grid.Row="2"/>
-        
+        <view:NavigationView DataContext="{Binding NavigationViewModel}" Grid.Row="2" />
+
         <GridSplitter Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Width="5"
-                      Background="DarkRed" HorizontalAlignment="Center"/>
+                      Background="DarkRed" HorizontalAlignment="Center" />
 
         <!-- Tabs -->
         <TabControl ItemsSource="{Binding FriendEditViewModels}"
@@ -46,7 +47,7 @@
                 <Style TargetType="TabItem" BasedOn="{StaticResource {x:Type TabItem}}">
                     <Style.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="FontWeight" Value="Bold" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -54,8 +55,8 @@
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Friend.FirstName, ValidatesOnNotifyDataErrors=False}"/>
-                        <TextBlock Text="{Binding Friend.LastName}" Margin="5 0 20 0"/>
+                        <TextBlock Text="{Binding Friend.FirstName, ValidatesOnNotifyDataErrors=False}" />
+                        <TextBlock Text="{Binding Friend.LastName}" Margin="5 0 20 0" />
                         <Button Content="X" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabControl}}, Path=DataContext.CloserFriendTabCommand}"
                                 CommandParameter="{Binding}"
                                 Width="20" Height="20" FontWeight="Bold" FontSize="12"
@@ -66,13 +67,13 @@
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
                 <DataTemplate>
-                    <view:FriendEditView/>
+                    <view:FriendEditView />
                 </DataTemplate>
             </TabControl.ContentTemplate>
         </TabControl>
 
         <!-- Footer-->
         <TextBlock Text="Created by Thomas Claudius Huber, 2016" Margin="10"
-                   Grid.Row="3" Grid.ColumnSpan="3" Foreground="LightGray"/>
+                   Grid.Row="3" Grid.ColumnSpan="3" Foreground="LightGray" />
     </Grid>
 </Window>

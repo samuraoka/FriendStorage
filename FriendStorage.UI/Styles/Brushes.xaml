@@ -2,7 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!-- Default Brushes for the FriendStorage-application -->
+    <SolidColorBrush x:Key="DefaultForegroundBrush" Color="White" />
+    <SolidColorBrush x:Key="DefaultBackgroundBrush" Color="#555555" />
+    <SolidColorBrush x:Key="DefaultBorderBrush" Color="#888888" />
     <!-- TODO -->
-    <SolidColorBrush x:Key="LabelForegroundBrush" Color="#CCCCCC"/>
+    <SolidColorBrush x:Key="LabelForegroundBrush" Color="#CCCCCC" />
     <!-- TODO -->
 </ResourceDictionary>
