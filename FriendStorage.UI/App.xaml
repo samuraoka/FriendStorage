@@ -7,8 +7,10 @@
         <ResourceDictionary>
             <sys:Double x:Key="DefaultFontSize">18</sys:Double>
             <ResourceDictionary.MergedDictionaries>
-                <!-- TODO add resources here -->
+                <ResourceDictionary Source="Styles/Brushes.xaml"/>
                 <ResourceDictionary Source="Styles/Button.xaml"/>
+                <!-- TODO add resources here -->
+                <ResourceDictionary Source="Styles/Label.xaml"/>
                 <!-- TODO add resources here -->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
