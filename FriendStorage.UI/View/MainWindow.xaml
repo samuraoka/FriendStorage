@@ -68,6 +68,8 @@
             </TabControl.ContentTemplate>
         </TabControl>
 
-        <!-- TODO add Footer-->
+        <!-- Footer-->
+        <TextBlock Text="Created by Thomas Claudius Huber, 2016" Margin="10"
+                   Grid.Row="3" Grid.ColumnSpan="3" Foreground="LightGray"/>
     </Grid>
 </Window>
