@@ -39,7 +39,9 @@
                       Background="DarkRed" HorizontalAlignment="Center"/>
 
         <!-- Tabs -->
-        <TabControl Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Background="Black">
+        <TabControl ItemsSource="{Binding FriendEditViewModels}"
+                    SelectedItem="{Binding SelectedFriendEditViewModel, Mode=TwoWay}"
+                    Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Background="Black">
             <TabControl.ItemContainerStyle>
                 <Style TargetType="TabItem" BasedOn="{StaticResource {x:Type TabItem}}">
                     <Style.Triggers>
@@ -52,9 +54,10 @@
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Dummy Text"/>
-                        <TextBlock Text="Dummy Text" Margin="5 0 20 0"/>
-                        <Button Content="X"
+                        <TextBlock Text="{Binding Friend.FirstName, ValidatesOnNotifyDataErrors=False}"/>
+                        <TextBlock Text="{Binding Friend.LastName}" Margin="5 0 20 0"/>
+                        <Button Content="X" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabControl}}, Path=DataContext.CloserFriendTabCommand}"
+                                CommandParameter="{Binding}"
                                 Width="20" Height="20" FontWeight="Bold" FontSize="12"
                                 Foreground="White" Padding="0">
                         </Button>

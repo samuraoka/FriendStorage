@@ -39,5 +39,7 @@
         </Setter>
     </Style>
 
-    <!-- DOTO add styles here -->
+    <Style x:Key="NavigationButtonStyle" TargetType="Button">
+        <!-- DOTO add styles here -->
+    </Style>
 </ResourceDictionary>

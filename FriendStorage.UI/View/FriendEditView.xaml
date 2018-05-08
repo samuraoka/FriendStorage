@@ -7,6 +7,27 @@
              d:DesignHeight="350" d:DesignWidth="700"
              Background="#333333">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="62*"/>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="97*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Label Content="Firstname" Margin="5"/>
+        <TextBox Text="{Binding Friend.FirstName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="1"/>
+
+        <Label Content="Lastname" Grid.Row="1" Margin="5"/>
+        <TextBox Text="{Binding Friend.LastName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Row="1" Grid.Column="1"/>
+
         <!-- TODO -->
     </Grid>
 </UserControl>
