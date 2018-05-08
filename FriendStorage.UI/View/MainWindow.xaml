@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FriendStorage.UI.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="FriendStorage" FontSize="{StaticResource DefaultFontSize}"
+        MinHeight="650" MinWidth="920" Height="650" Width="920"
+        WindowStartupLocation="CenterScreen"
+        Background="Black" Icon="../Images/FriendStorageIcon.png">
     <Grid>
         
     </Grid>
