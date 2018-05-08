@@ -10,6 +10,21 @@
         WindowStartupLocation="CenterScreen"
         Background="Black" Icon="../Images/FriendStorageIcon.png">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         
+        <!-- Header -->
+        <TextBlock Margin="10" Foreground="White" FontSize="40" Grid.ColumnSpan="3">
+            <Bold Foreground="Red">Friend</Bold>
+        </TextBlock>
+
     </Grid>
 </Window>
