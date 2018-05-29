@@ -1,0 +1,5 @@
+﻿// Configuring xUnit.net with JSON
+// https://xunit.github.io/docs/configuring-with-json
+{
+  "methodDisplay": "method"
+}
