@@ -9,11 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{60D7905E-C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriendStorage.Model.Test", "Test\FriendStorage.Model.Test\FriendStorage.Model.Test.csproj", "{28E4EC2E-AB59-479F-A859-2FB02B9BF6CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendStorage.DataAccess", "FriendStorage.DataAccess\FriendStorage.DataAccess.csproj", "{0665B12F-B380-4C9D-BEC0-C4C8DCFB5337}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriendStorage.DataAccess", "FriendStorage.DataAccess\FriendStorage.DataAccess.csproj", "{0665B12F-B380-4C9D-BEC0-C4C8DCFB5337}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendStorage.DataAccess.Test", "Test\FriendStorage.DataAccess.Test\FriendStorage.DataAccess.Test.csproj", "{699200C4-3AC8-4C62-98B0-43042CFBD404}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriendStorage.DataAccess.Test", "Test\FriendStorage.DataAccess.Test\FriendStorage.DataAccess.Test.csproj", "{699200C4-3AC8-4C62-98B0-43042CFBD404}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendStorage.UI", "FriendStorage.UI\FriendStorage.UI.csproj", "{7307EC64-D8D8-477F-9375-A437BF438F59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendStorage.UI.Test", "FriendStorage.UI.Test\FriendStorage.UI.Test.csproj", "{C7749223-6689-425D-A664-5170BFA12B3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{7307EC64-D8D8-477F-9375-A437BF438F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7307EC64-D8D8-477F-9375-A437BF438F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7307EC64-D8D8-477F-9375-A437BF438F59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7749223-6689-425D-A664-5170BFA12B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7749223-6689-425D-A664-5170BFA12B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7749223-6689-425D-A664-5170BFA12B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7749223-6689-425D-A664-5170BFA12B3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{28E4EC2E-AB59-479F-A859-2FB02B9BF6CC} = {60D7905E-CEFB-4249-82CB-8AD396A98443}
 		{699200C4-3AC8-4C62-98B0-43042CFBD404} = {60D7905E-CEFB-4249-82CB-8AD396A98443}
+		{C7749223-6689-425D-A664-5170BFA12B3C} = {60D7905E-CEFB-4249-82CB-8AD396A98443}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A9CC4FA9-ACED-412E-8451-73B96B544D77}
